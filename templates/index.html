@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stress Detector</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Mental Health Manager</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('analyze_text') }}">Analyze Text</a></li>
+            <li><a>History</a></li>
+            <li><a>Personalized Tips</a></li>
+            <li><a>Comparison Tool</a></li>
+            <li><a href="{{ url_for('community') }}">Community</a></li>
+            <li><a>Resources</a></li>
+            {% if 'username' in session %}
+            <li>
+              <a href="{{ url_for('logout') }}"
+                >Logout ({{ session['username'] }})</a
+              >
+            </li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="features">
+          <div class="feature">
+            <h3><a href="{{ url_for('analyze_text') }}">Analyze Text</a></h3>
+            <p>Input your text to check for signs of stress.</p>
+          </div>
+          <div class="feature">
+            <h3>Historical Analysis</h3>
+            <p>Track and visualize changes in your stress levels over time.</p>
+          </div>
+          <div class="feature">
+            <h3>Personalized Tips</h3>
+            <p>
+              Receive suggestions and resources for stress management based on
+              your analysis results.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Comparison Tool</h3>
+            <p>
+              Compare stress levels of different texts or time periods to
+              identify patterns and triggers.
+            </p>
+          </div>
+          <div class="feature">
+            <h3><a href="{{ url_for('community') }}">Community</a></h3>
+            <p>
+              Post your analyzed text anonymously to a community board for
+              support and feedback.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Mental Health Resources</h3>
+            <p>
+              Access direct links to mental health professionals, hotlines, and
+              self-help resources.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Created for Summer Internship Project - AIML-A - Batch 6</p>
+      </div>
+    </footer>
+  </body>
+</html>
